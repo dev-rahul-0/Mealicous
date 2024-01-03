@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mealapk/dummy.dart';
+import 'package:mealapk/meals.dart';
 
 import 'CategoriesScreen.dart';
 
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return   MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CategoriesScreen(),
     );

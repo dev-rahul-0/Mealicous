@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:mealapk/CategoriesGridItem.dart';
+import 'package:mealapk/meals.dart';
 
 import 'dummy.dart';
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
+
 
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
+  void _selectCategory(BuildContext context) {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) =>
+            const MealsScreen(
+              title: 'Some title',
+              meals: [],
+            )
+        )
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +29,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         title: const Text('Pick your category'),
       ),
       body: GridView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 3/2,
@@ -26,7 +38,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         ),
         children: [
           for (final category in availableCategories)
-            CategoryGridItem(category: category)
+            CategoryGridItem(category: category,onSelectCategory: (){
+              _selectCategory(context);
+            },)
         ],
       ),
     );
