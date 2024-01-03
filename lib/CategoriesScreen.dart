@@ -1,7 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:mealapk/CategoriesGridItem.dart';
+import 'package:mealapk/category.dart';
 import 'package:mealapk/meals.dart';
-
 import 'dummy.dart';
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
@@ -12,12 +13,14 @@ class CategoriesScreen extends StatefulWidget {
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
-  void _selectCategory(BuildContext context) {
+
+  void _selectCategory(BuildContext context ,Category category) {
+    final filteredMeals = dummyMeals.where((Meal) => Meal.categories.contains(category.id)).toList();
     Navigator.of(context).push(
         MaterialPageRoute(builder: (context) =>
-            const MealsScreen(
-              title: 'Some title',
-              meals: [],
+              MealsScreen(
+              title: category.title,
+              meals: filteredMeals,
             )
         )
     );
@@ -39,7 +42,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         children: [
           for (final category in availableCategories)
             CategoryGridItem(category: category,onSelectCategory: (){
-              _selectCategory(context);
+              _selectCategory(context, category);
             },)
         ],
       ),
