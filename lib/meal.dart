@@ -10,22 +10,22 @@ enum Affordability {
   luxurious,
 }
 
-class Meal{
-  const Meal({
-required this.affordability,
-    required this.complexity,
-    required this.title,
-    required this.id,
-    required this.categories,
-    required this.duration,
-    required this.imageUrl,
-    required this.ingredients,
-    required this.isGlutenFree,
-    required this.isLactoseFree,
-    required this.isVegan,
-    required this.isVegetarian,
-    required this.steps
-});
+class Meal {
+  const Meal(
+      {required this.affordability,
+      required this.complexity,
+      required this.title,
+      required this.id,
+      required this.categories,
+      required this.duration,
+      required this.imageUrl,
+      required this.ingredients,
+      required this.isGlutenFree,
+      required this.isLactoseFree,
+      required this.isVegan,
+      required this.isVegetarian,
+      required this.steps});
+
   final String id;
   final List<String> categories;
   final String title;
