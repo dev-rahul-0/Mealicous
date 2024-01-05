@@ -3,10 +3,11 @@ import 'package:mealapk/CategoriesGridItem.dart';
 import 'package:mealapk/category.dart';
 import 'package:mealapk/meals.dart';
 import 'dummy.dart';
+import 'meal.dart';
 
 class CategoriesScreen extends StatefulWidget {
-  const CategoriesScreen({super.key});
-
+  const CategoriesScreen({super.key,required this.onToggleFavorite});
+  final void Function(Meal meal) onToggleFavorite;
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
@@ -20,15 +21,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         builder: (context) => MealsScreen(
               title: category.title,
               meals: filteredMeals,
+          onToggleFavorite: ,
             )));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pick your category'),
-      ),
       body: GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
