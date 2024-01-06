@@ -5,26 +5,22 @@ import 'package:mealapk/meals.dart';
 import 'dummy.dart';
 import 'meal.dart';
 
-class CategoriesScreen extends StatefulWidget {
+class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key,required this.onToggleFavorite});
   final void Function(Meal meal) onToggleFavorite;
-  @override
-  State<CategoriesScreen> createState() => _CategoriesScreenState();
-}
-
-class _CategoriesScreenState extends State<CategoriesScreen> {
   void _selectCategory(BuildContext context, Category category) {
     final filteredMeals = dummyMeals
-        .where((Meal) => Meal.categories.contains(category.id))
+        .where((meal) => meal.categories.contains(category.id))
         .toList();
+
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => MealsScreen(
+        builder: (context) =>
+            MealsScreen(
               title: category.title,
               meals: filteredMeals,
-          onToggleFavorite: ,
+              onToggleFavorite: onToggleFavorite,
             )));
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
