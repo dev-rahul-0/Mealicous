@@ -14,12 +14,12 @@ class _FilterScreenState extends State<FilterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Filters'),
+        title: const Text('Your Filters'),
       ),
       drawer: MainDrawer(onSelectScreen: (identifier){
         Navigator.of(context).pop();
         if (identifier == 'meals'){
-          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> TabsScreen()));
+          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const TabsScreen()));
         }
       },),
       body: Column(
