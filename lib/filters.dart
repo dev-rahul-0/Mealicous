@@ -10,30 +10,34 @@ class FilterScreen extends StatefulWidget {
 
 class _FilterScreenState extends State<FilterScreen> {
   var _glutenFreeFilterSet = false;
+  var _lactoseFreeFilterSet = false;
+  var _vegetarianFilterSet = false;
+  var _veganFilterSet = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Filters'),
       ),
-      drawer: MainDrawer(onSelectScreen: (identifier){
-        Navigator.of(context).pop();
-        if (identifier == 'meals'){
-          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const TabsScreen()));
-        }
-      },),
+      // drawer: MainDrawer(onSelectScreen: (identifier){
+      //   Navigator.of(context).pop();
+      //   if (identifier == 'meals'){
+      //     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const TabsScreen()));
+      //   }
+      // },),
       body: Column(
         children: [
-          SwitchListTile(value: _glutenFreeFilterSet,
+          SwitchListTile(value: _lactoseFreeFilterSet,
               onChanged: (isChecked){
             setState(() {
-              _glutenFreeFilterSet = isChecked;
+                _lactoseFreeFilterSet = isChecked;
             });
               },
-          title: Text('Gluten-free',style: Theme.of(context).textTheme.titleLarge!.copyWith(
+          title: Text('Lactose-free',style: Theme.of(context).textTheme.titleLarge!.copyWith(
             color: Theme.of(context).colorScheme.onBackground,
           )),
-            subtitle: Text('Only include gluten-free meals.',style: Theme.of(context).textTheme.labelMedium!.copyWith(
+            subtitle: Text('Only include Lactose-free meals.',style: Theme.of(context).textTheme.labelMedium!.copyWith(
               color: Theme.of(context).colorScheme.onBackground
             ),),
             activeColor: Theme.of(context).colorScheme.tertiary,
