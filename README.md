@@ -1,16 +1,8 @@
-# mealapk
+# Mealicous
 
-A new Flutter project.
+Mealicious is a user-friendly mobile app designed to help users discover, plan, and cook delicious meals effortlessly. With an intuitive interface and a vast collection of recipes, Mealicious caters to users of all cooking skill levels.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshot
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
