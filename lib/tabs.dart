@@ -15,6 +15,12 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _selectPageIndex = 0;
   final List<Meal> _favoriteMeals = [];
+  Map<Filter,bool> _selectFilters = {
+    Filter.vegetarian: false,
+    Filter.lactosefree:false,
+    Filter.vegan:false,
+    Filter.glutenfree:false
+  };
   void _showInfoMessage(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
@@ -49,7 +55,9 @@ class _TabsScreenState extends State<TabsScreen> {
       final result = await Navigator.of(context).push<Map<Filter,bool>>(
         MaterialPageRoute(builder: (context)=> FilterScreen())
       );
-      print(result);
+      setState(() {
+        _selectFilters = result;
+      });
     }
   }
 
